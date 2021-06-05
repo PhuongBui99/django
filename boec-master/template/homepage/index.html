@@ -1,0 +1,617 @@
+{% extends 'homepage/base.html' %}
+
+{% load static %}
+
+    {% block cssblock %}
+
+     <!-- Css Styles -->
+    <link rel="stylesheet" href="{% static 'homepage/css/bootstrap.min.css' %}" type="text/css">
+    <link rel="stylesheet" href="{% static 'homepage/css/font-awesome.min.css' %}" type="text/css">
+    <link rel="stylesheet" href="{% static 'homepage/css/themify-icons.css' %}" type="text/css">
+    <link rel="stylesheet" href="{% static 'homepage/css/elegant-icons.css' %}" type="text/css">
+    <link rel="stylesheet" href="{% static 'homepage/css/owl.carousel.min.css' %}" type="text/css">
+    <link rel="stylesheet" href="{% static 'homepage/css/nice-select.css' %}" type="text/css">
+    <link rel="stylesheet" href="{% static 'homepage/css/jquery-ui.min.css' %}" type="text/css">
+    <link rel="stylesheet" href="{% static 'homepage/css/slicknav.min.css' %}" type="text/css">
+    <link rel="stylesheet" href="{% static 'homepage/css/style.css' %}" type="text/css">
+
+    <style>
+
+    .spad{
+        padding-bottom: 0;
+    }
+        banner2{
+    background-color: #ebe3da;
+  }
+
+  .banner2 img{
+    display: block;
+    width: 100%;
+    height: auto;
+  }
+
+  .banner2-content{
+    width: 100%;
+    text-align: center;
+  }
+
+  .banner2-content h1{
+    font-size: 60px;
+    text-transform: uppercase;
+    font-family: 'Dancing Script', cursive;
+    margin-bottom: 30px;
+  }
+
+  .banner2-content h4{
+    font-size: 1.5rem;
+    font-family: 'Roboto', sans-serif;
+    color: #000;
+    font-weight: 300;
+    margin-bottom: 54px;
+    line-height: 1.2;
+    text-transform: uppercase;
+  }
+
+  .banner2-content input{
+    background-color: #ff5353;
+    border: 1px solid #ff5353;
+    padding: 15px 40px;
+    color: #fff6f6;
+    text-decoration: none;
+    text-transform: uppercase;
+    border-radius: 5px;
+    font-size: 14px;
+    font-weight: 600;
+  }
+
+
+  .banner2-content input:hover{
+    background-color: #fff6f6;
+    text-decoration: none;
+    border: 1px solid #fff6f6;
+    color: blue;
+  }
+
+  /*Silon journal*/
+.sec-heading4{
+  text-align: center;
+
+}
+
+.sec-heading4 h3{
+  font-size: 36px;
+   font-weight: 700;
+   text-transform: uppercase;
+   margin-bottom: 0;
+   text-align: center;
+   padding: 100px;
+  }
+
+  .post-title a{
+    font-size: 20px;
+    font-family: 'Roboto', sans-serif;
+    font-weight: bold;
+    color: #000;
+   
+  }
+
+  .post-title a:hover{
+    text-decoration: none;
+    color: #ff5353;
+  }
+
+  .post-meta {
+          font-size: 13px;
+          color: #888888;
+          font-family:  'Roboto', sans-serif;
+  }
+
+  .post-meta:hover{
+    text-decoration: none;
+    color: #ff5353;
+  }
+
+  .post-meta .category, .comments{
+    font-size: 14px;
+    
+  }
+
+  .post-meta span{
+    padding-left: 5px;
+  }
+
+  .meta-tags a{
+    padding-right: 20px;
+  }
+
+
+  .meta-tags{
+    border-top: 1px solid #e1e1e1;
+    padding-top: 25px;
+    margin-top: 30px;
+  }
+
+  .product-picture .date:before {
+    content: '';
+   position: absolute;
+    top: 26px;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: #ff5353;
+    border-radius: 2px;
+    width: 12px;
+    height: 6px;
+}
+
+.product-picture .date{
+  padding-left: 22px;
+  padding-top: 20px;
+}
+
+.post-meta{
+  position: relative;
+  display: inline-block;
+  
+}
+
+
+    </style>
+    {% endblock %}
+
+    {% block content %}
+
+    <!-- Hero Section Begin -->
+    <section class="hero-section">
+        <div class="hero-items owl-carousel">
+            <div class="single-hero-items set-bg" data-setbg="{% static 'homepage/img/books.jpg' %}">
+                <div class="container">
+                    <div class="row">
+                        <div class="col-lg-5">
+                            <span style="color: #ffffff;">Bạn yêu sách</span>
+                            <h1 style="color: #ffffff;">ƯU ĐÃI LỚN NHẤT NĂM</h1>
+                            <p style="color: #ffffff;">Sách đang được sale 50% để mọi người có thể có thêm kiến thức vào thời covid </p>
+                            {% if user.id is not null %}
+                        <a href="{% url 'product:shop' user.id 0 %}" class="primary-btn">Mua ngay</a>
+                        {% else %}
+                        <a href="{% url 'product:shopno' 0 %}" class="primary-btn">Mua ngay </a>
+                        {% endif %}
+                        </div>
+                    </div>
+                    <!-- <div class="off-card">
+                        <h2>Sale <span>50%</span></h2>
+                    </div> -->
+                </div>
+            </div>
+            <div class="single-hero-items set-bg" data-setbg="{% static 'homepage/img/mobile.png' %}">
+                <div class="container">
+                    <div class="row">
+                        <div class="col-lg-5">
+                            <span>Thiết bị điện tử </span>
+                            <h1 style="color: #ffffff;">ƯU ĐÃI LỚN</h1>
+                            <p style="color: #ffffff;"  >Thiết bị điện tử đang có đợt sale lớn để chuẩn bị năm học mới </p>
+                            {% if user.id is not null %}
+                         <a href="{% url 'product:shop' user.id 0 %}" class="primary-btn">Xem thêm </a>
+                            {% else %}
+                            <a href="{% url 'product:shopno' 0 %}" class="primary-btn">Xem thêm  </a>
+                            {% endif %}
+                        </div>
+                    </div>
+                    <!-- <div class="off-card">
+                        <h2>Sale <span>10%</span></h2>
+                    </div> -->
+                </div>
+            </div>
+            <div class="single-hero-items set-bg" data-setbg="{% static 'homepage/img/fashion.jpg' %}">
+                <div class="container">
+                    <div class="row">
+                        <div class="col-lg-5">
+                            <span>Quần áo  </span>
+                            <h1>ƯU ĐÃI LỚN</h1>
+                            <p>Quần áo đang sale lớn đón hè tới  </p>
+                            {% if user.id is not null %}
+                         <a href="{% url 'product:shop' user.id 0 %}" class="primary-btn">Xem thêm </a>
+                            {% else %}
+                            <a href="{% url 'product:shopno' 0 %}" class="primary-btn">Xem thêm  </a>
+                            {% endif %}
+                        </div>
+                    </div>
+                    <!-- <div class="off-card">
+                        <h2>Sale <span>30%</span></h2>
+                    </div> -->
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- Hero Section End -->
+
+    <!-- Banner Section Begin -->
+    <div class="banner-section spad">
+        <div class="container text-center justify-content-center">
+            <div class="row ">
+                <h2 style="font-weight: 700; margin: 20px 40%;">SẢN PHẨM</h2>
+            </div>
+            <div class="row d-flex justify-content-around text-center align-items-center">
+                <div class="col-lg-4">
+                    <!-- <div class="single-banner">
+                        <img src="{% static 'homepage/img/book-banner.jpeg' %}" alt="">
+                        <div class="inner-text">
+                            <h4>Sách</h4>
+                        </div>
+                    </div> -->
+                    <div class="card" style="width: 18rem;">
+                        <img class="card-img-top" src="{% static 'homepage/img/1.jpg' %}" alt="Card image cap">
+                        <div class="card-body">
+                          <h5 style="font-weight: 700;" class="card-title">Sách</h5>
+                          <p class="card-text">Bạn là người yêu sách, nhanh tay đặt mua những cuốn sách bán chạy nhất</p>
+                        </div>
+                      </div>
+                </div>
+                <div class="col-lg-4">
+                    <!-- <div class="single-banner">
+                        <img src="{% static 'homepage/img/macbook-banner.jpg' %}" alt="">
+                        <div class="inner-text">
+                            <h4>Đồ điện tử</h4>
+                        </div>
+                    </div> -->
+                    <div class="card" style="width: 18rem;">
+                        <img class="card-img-top" src="{% static 'homepage/img/2.jpg' %}" alt="Card image cap">
+                        <div class="card-body">
+                          <h5 style="font-weight: 700;" class="card-title">Trang phục</h5>
+                          <p class="card-text">Bạn là tín đồ mua sắm, nhanh tay đặt mua nhận ngàn ưu đãi</p>
+                        </div>
+                      </div>
+                </div>
+                <div class="col-lg-4">
+                    <!-- <div class="single-banner">
+                        <img src="{% static 'homepage/img/clothes-banner.jpg' %}" alt="">
+                        <div class="inner-text">
+                            <h4>Quần áo </h4>
+                        </div>
+                    </div> -->
+                    <div class="card" style="width: 18rem;">
+                        <img class="card-img-top" src="{% static 'homepage/img/3.jpg' %}" alt="Card image cap">
+                        <div class="card-body">
+                          <h5 style="font-weight: 700;" class="card-title">Thiết bị điện tử</h5>
+                          <p class="card-text">Tín đồ công nghệ không thể bỏ lỡ ưu đãi này, ưu đãi lên tới 50%</p>
+                        </div>
+                      </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- Banner Section End -->
+
+    <!-- Women Banner Section Begin -->
+    <section class="women-banner spad">
+        <div class="container-fluid">
+            <div class="row">
+                <h2 style="margin: 20px 30%;">TOP SÁCH BÁN CHẠY</h2>
+            </div>
+            <div class="row">
+                <div class="">
+                    <div class="filter-control">
+                        <ul>
+
+                        </ul>
+                    </div>
+                    <div class="product-slider owl-carousel">
+
+                        {% for item in list_var %}
+
+                        <div class="product-item">
+                            <div class="pi-pic">
+                                <img src=" {% static '/img/upload/' %}{{ item.product.product_image }}" alt="">
+                                <div class="icon">
+                                    <a href=""><i style="color: red;" class="icon_heart_alt"></i></a>
+                                </div>
+                                <ul>
+                                    {% if cart %}
+                                    <li class="w-icon active"><a href="{% url 'cart:addtocart' item.product.id cart.id user.id %}"><i class="icon_bag_alt"></i></a></li>
+                                    <li class="quick-view"><a href="{% url 'cart:addtocart' item.product.id cart.id user.id %}">Thêm vào giỏ</a></li>
+                                    {% else %}
+                                    <li class="w-icon active"><a href="{% url 'core:login' %}"><i class="icon_bag_alt"></i></a></li>
+                                    <li class="quick-view"><a href="{% url 'core:login' %}">Thêm vào giỏ</a></li>
+                                    {% endif %}
+                                </ul>
+                            </div>
+                            <div class="pi-text">
+                                <div class="catagory-name">{{ item.product.category.title}}</div>
+                                {% if user.id is not null %}
+                                <a href="{% url 'product:showproduct' user.id item.id %}">
+                                {% else %}
+                                <a href="{% url 'product:showproductno' item.id %}">
+                                    {% endif %}
+                                    <h5>{{item.title}}</h5>
+                                </a>
+                                <div class="product-price">
+                                    {{item.sale_price}}
+                                    <span>{{item.price}}</span>
+                                </div>
+                            </div>
+                        </div>
+                        {% endfor %}
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- Women Banner Section End -->
+
+    <!-- Deal Of The Week Section Begin-->
+    <!-- <section class="deal-of-week set-bg spad" data-setbg="{% static '/img/upload/' %}{{ sale.product_image }}">
+        <div class="container">
+            <div class="col-lg-6 text-center">
+                <div class="section-title">
+                    <h2>Giảm giá đặc biệt </h2>
+                    <p>Hàng tháng hoặc hàng tuần , chũng tôi sẽ có một sản phẩm được giảm giá đặc biệt </p>
+                    <div class="product-price">
+                        {{ sale.price}}VND
+                        <span>/{{sale.title}}</span>
+                    </div>
+                </div>
+                <div class="countdown-timer" id="countdown">
+                    <div class="cd-item">
+                        <span>56</span>
+                        <p>Days</p>
+                    </div>
+                    <div class="cd-item">
+                        <span>12</span>
+                        <p>Hrs</p>
+                    </div>
+                    <div class="cd-item">
+                        <span>40</span>
+                        <p>Mins</p>
+                    </div>
+                    <div class="cd-item">
+                        <span>52</span>
+                        <p>Secs</p>
+                    </div>
+                </div>
+                 {% if user.id is not null %}
+                         <a href="{% url 'product:shop' user.id 0 %}" class="primary-btn">Xem thêm </a>
+                            {% else %}
+                            <a href="{% url 'product:shopno' 0 %}" class="primary-btn">Xem thêm  </a>
+                            {% endif %}
+            </div>
+        </div>
+    </section> -->
+    <!-- Deal Of The Week Section End -->
+
+    <!-- Man Banner Section Begin -->
+    <section class="man-banner spad">
+        <div class="container-fluid">
+            <div class="row">
+                <div class="col-lg-8">
+                    <div class="filter-control">
+
+                    </div>
+                    <div class="product-slider owl-carousel">
+                        {% for item in list_var2 %}
+
+                        <div class="product-item">
+                            <div class="pi-pic">
+                                <img src="https://cf.shopee.vn/file/2dd923298ba0685a2288af4ae443c51c" alt="">
+                                <div class="icon">
+                                    <a href=""><i style="color: red;" class="icon_heart_alt"></i></a>
+                                </div>
+                                <ul>
+                                    {% if cart %}
+                                    <li class="w-icon active"><a href="{% url 'cart:addtocart' item.product.id cart.id user.id %}"><i class="icon_bag_alt"></i></a></li>
+                                    <li class="quick-view"><a href="{% url 'cart:addtocart' item.product.id cart.id user.id %}">Thêm vào giỏ</a></li>
+                                    {% else %}
+                                    <li class="w-icon active"><a href="{% url 'core:login' %}"><i class="icon_bag_alt"></i></a></li>
+                                    <li class="quick-view"><a href="{% url 'core:login' %}">Thêm vào giỏ</a></li>
+                                    {% endif %}
+                                </ul>
+                            </div>
+                            <div class="pi-text">
+                                <div class="catagory-name">{{ item.product.category.title}}</div>
+                               {% if user.id is not null %}
+                                <a href="{% url 'product:showproduct' user.id item.id %}">
+                                {% else %}
+                                <a href="{% url 'product:showproductno' item.id %}">
+                                    {% endif %}
+                                    <h5>{{item.title}}</h5>
+                                </a>
+                                <div class="product-price">
+                                    {{item.sale_price}}
+                                    <span>{{item.price}}</span>
+                                </div>
+                            </div>
+                        </div>
+                        {% endfor %}
+
+                    </div>
+                </div>
+                <div class="col-lg-3 offset-lg-1">
+                    <div class="product-large set-bg m-large" data-setbg="{% static 'homepage/img/products/mac-large.jpg' %}">
+                        {% if user.id is not null %}
+                         <a href="{% url 'product:shop' user.id 0 %}" class="primary-btn">Xem thêm </a>
+                            {% else %}
+                            <a href="{% url 'product:shopno' 0 %}" class="primary-btn">Xem thêm  </a>
+                            {% endif %}
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- Man Banner Section End -->
+
+
+    <section class="banner2" style="color: #bbbbbb;">
+        <div class="container-fluid">
+            <div class="row align-items-center">
+                <div class="col-md-6 ">
+                    <div class="banner2-content">
+                        <h1>50% OfF</h1>
+                        <h4>All women's collection</h4>
+                        <input type="button" value="shop now">
+                    </div>
+                </div>
+                <div class="col-md-6">
+                    <img src="{% static 'homepage/img/ban-2.png' %}">
+                </div>
+            </div>
+        </div>
+    </section>
+
+
+    <!-- Women Banner Section Begin -->
+    <section class="women-banner spad">
+        <div class="container-fluid">
+            <div class="row">
+                <div>
+                    <div class="filter-control">
+                        <ul>
+
+                        </ul>
+                    </div>
+                    <div class="product-slider owl-carousel">
+
+                        {% for item in list_var3 %}
+
+                        <div class="product-item">
+                            <div class="pi-pic">
+                                <img src="{% static 'homepage/img/váy.jpg' %}" alt="">
+                                <div class="icon">
+                                    <a href=""><i style="color: red;" class="icon_heart_alt"></i></a>
+                                </div>
+                                <ul>
+                                    {% if cart %}
+                                    <li class="w-icon active"><a href="{% url 'cart:addtocart' item.product.id cart.id user.id %}"><i class="icon_bag_alt"></i></a></li>
+                                    <li class="quick-view"><a href="{% url 'cart:addtocart' item.product.id cart.id user.id %}">Thêm vào giỏ</a></li>
+                                    {% else %}
+                                    <li class="w-icon active"><a href="{% url 'core:login' %}"><i class="icon_bag_alt"></i></a></li>
+                                    <li class="quick-view"><a href="{% url 'core:login' %}">Thêm vào giỏ</a></li>
+                                    {% endif %}
+                                </ul>
+                            </div>
+                            <div class="pi-text">
+                                <div class="catagory-name">{{ item.product.category.title}}</div>
+                                {% if user.id is not null %}
+                                <a href="{% url 'product:showproduct' user.id item.id %}">
+                                {% else %}
+                                <a href="{% url 'product:showproductno' item.id %}">
+                                    {% endif %}
+                                    <h5>{{item.title}}</h5>
+                                </a>
+                                <div class="product-price">
+                                    {{item.sale_price}}
+                                    <span>{{item.price}}</span>
+                                </div>
+                            </div>
+                        </div>
+                        {% endfor %}
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- Women Banner Section End -->
+
+
+    <section class="silon journal mt-0">
+        <div class="container mb-5">
+            <div class="row">
+                <div class="col">
+                    <div class="sec-heading4">
+                        <h3 class="sec-title">Silon journal</h3>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-4">
+                    <div class="product-picture">
+
+                        <img src="{% static 'homepage/img/p1.jpg' %}">
+
+
+                        <div class="post-content">
+                            <a href="#" class="post-meta date">07 July, 2019</a>
+                            <h3 class="post-title">
+                                <a href="#">We re divided land his creature which have evening subdue</a>
+                            </h3>
+                            <div class="meta-tags">
+                                <a href="#" class="post-meta category">
+                                    <i class="fa fa-cube"></i> <span>Women Fashion</span>
+                                </a>
+
+                                <a href="#" class="post-meta comments">
+                                    <i class="fa fa-comment-alt"></i><span> 2 Comments</span>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-md-4">
+                    <div class="product-picture">
+
+                        <img src="{% static 'homepage/img/p2.jpg' %}">
+
+
+                        <div class="post-content">
+                            <a href="#" class="post-meta date">07 July, 2019</a>
+                            <h3 class="post-title">
+                                <a href="#">We re divided land his creature which have evening subdue</a>
+                            </h3>
+                            <div class="meta-tags">
+                                <a href="#" class="post-meta category">
+                                    <i class="fa fa-cube"></i> <span>Women Fashion</span>
+                                </a>
+
+                                <a href="#" class="post-meta comments">
+                                    <i class="fa fa-comment-alt"></i><span> 2 Comments</span>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-md-4">
+                    <div class="product-picture">
+
+                        <img src="{% static 'homepage/img/p3.jpg' %}">
+
+
+                        <div class="post-content">
+                            <a href="#" class="post-meta date">07 July, 2019</a>
+                            <h3 class="post-title">
+                                <a href="#">We re divided land his creature which have evening subdue</a>
+                            </h3>
+                            <div class="meta-tags">
+                                <a href="#" class="post-meta category">
+                                    <i class="fa fa-cube"></i> <span>Women Fashion</span>
+                                </a>
+
+                                <a href="#" class="post-meta comments">
+                                    <i class="fa fa-comment-alt"></i><span> 2 Comments</span>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    {%  endblock %}
+
+    {%block jsblock %}
+
+    <script src="{% static 'homepage/js/jquery-3.3.1.min.js' %}"></script>
+    <script src="{% static 'homepage/js/bootstrap.min.js' %}"></script>
+    <script src="{% static 'homepage/js/jquery-ui.min.js' %}"></script>
+    <script src="{% static 'homepage/js/jquery.countdown.min.js' %}"></script>
+    <script src="{% static 'homepage/js/jquery.nice-select.min.js' %}"></script>
+    <script src="{% static 'homepage/js/jquery.zoom.min.js' %}"></script>
+    <script src="{% static 'homepage/js/jquery.dd.min.js' %}"></script>
+    <script src="{% static 'homepage/js/jquery.slicknav.js' %}"></script>
+    <script src="{% static 'homepage/js/owl.carousel.min.js' %}"></script>
+    <script src="{% static 'homepage/js/main.js' %}"></script>
+
+    {% endblock %}
+
